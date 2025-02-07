@@ -19,13 +19,13 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   humanChoice = prompt("what do you choose?");
-  if (humanChoice === "rock") {
+  if (humanChoice.toLowerCase() === "rock") {
     humanChoice = 1;
     return humanChoice;
-  } else if (humanChoice === "paper") {
+  } else if (humanChoice.toLowerCase() === "paper") {
     humanChoice = 2;
     return humanChoice;
-  } else if (humanChoice === "scissors") {
+  } else if (humanChoice.toLowerCase() === "scissors") {
     humanChoice = 3;
     return humanChoice;
   } else { alert("something went wrong H") }
@@ -60,17 +60,23 @@ function playGame() {
     }
   }
 
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
 
 
-  for(i = 0; i < 4; i++) {
+  for(i = 0; i < 5; i++) {
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice();
     playRound(humanSelection, computerSelection);
   }
-  if (humanScore > 2) {
+  if (humanScore > computerScore) {
     console.log("you win!!!");
+  } else if (humanScore == computerScore) {
+    console.log("its a tie!!!");
   } else {
-    console.log("you lose!!");
+    console.log("you lose!!!ss");
   }
+  humanScore = 0;
+  computerScore = 0;
 }
+
+
 
