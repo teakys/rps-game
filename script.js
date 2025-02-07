@@ -4,44 +4,48 @@ let humanScore = 0;
 let computerScore = 0;
 
 function getComputerChoice() {
-  computerChoice = Math.floor(Math.random() * 100) + 1
-  if (computerChoice < 33) {
-    console.log("And I have chosen rock");
+    computerChoice = Math.floor(Math.random() * 100) + 1
+  if (computerChoice < 33 && (humanChoice == 1|humanChoice == 2|humanChoice == 3)) {
+    console.log("And I have chosen Rock");
     computerChoice = 1;
     return computerChoice;
-  } else if (computerChoice < 66) {
-    console.log("And I have chosen paper");
+  } else if (computerChoice < 66 && (humanChoice == 1|humanChoice == 2|humanChoice == 3)) {
+    console.log("And I have chosen Paper");
     computerChoice = 2;
     return computerChoice;
-  } else if (computerChoice > 66) {
-    console.log("And I have chosen scissors");
+  } else if (computerChoice > 66 && (humanChoice == 1|humanChoice == 2|humanChoice == 3)) {
+    console.log("And I have chosen Scissors");
     computerChoice = 3;
     return computerChoice;
-  } else { alert("something went wrong C") }
+  } else {}
 }
 
 function getHumanChoice() {
   humanChoice = prompt("Rock, Paper or Scissors?");
   if (humanChoice.toLowerCase() === "rock") {
-    console.log("You have chosen rock");
+    console.log("You have chosen Rock");
     humanChoice = 1;
     return humanChoice;
   } else if (humanChoice.toLowerCase() === "paper") {
-    console.log("You have chosen paper");
+    console.log("You have chosen Paper");
     humanChoice = 2;
     return humanChoice;
   } else if (humanChoice.toLowerCase() === "scissors") {
-    console.log("You have chosen scissors");
+    console.log("You have chosen Scissors");
     humanChoice = 3;
     return humanChoice;
-  } else { alert("something went wrong H") }
+  } else { alert("You have mispelled. Try again.") }
 }
 
 function playGame() {
 
+  alert("Let's play a best of 5");
+    
   function playRound(computerChoice, humanChoice) {
 
-    if (humanChoice == computerChoice) {
+    if (humanChoice == undefined | computerChoice == undefined)  {}
+
+    else if (humanChoice == computerChoice) {
       console.log("its a tie!");
     } 
 
@@ -66,7 +70,7 @@ function playGame() {
     }
   }
 
-  for(i = 0; i < 5; i++) {
+  while (humanScore < 3 && computerScore < 3) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
     playRound(computerSelection, humanSelection);
@@ -75,11 +79,11 @@ function playGame() {
     console.log("");
   }
   if (humanScore > computerScore) {
-    console.log("you win!!!");
+    console.log("You Win!");
   } else if (humanScore == computerScore) {
-    console.log("its a tie!!!");
+    console.log("Its a Tie!");
   } else {
-    console.log("you lose!!!");
+    console.log("You Lose!");
   }
   humanScore = 0;
   computerScore = 0;
